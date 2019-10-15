@@ -16,7 +16,7 @@ const PokemonProvider = pokemon => {
     const fetchCards = async () => {
       setLoading(true);
       const res = await axios.get(
-        `https://intern-pokedex.myriadapps.com/api/v1/pokemon/?page=${currentPage}&name=${searchQuery}`
+        `/api/v1/pokemon?page=${currentPage}&name=${searchQuery}`
       );
       setCards(res.data['data']);
       setFinalPage(res.data['meta'].last_page);
