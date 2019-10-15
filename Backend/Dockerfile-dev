@@ -1,0 +1,7 @@
+FROM bushelpowered/alpine-laravel:5.x-php7.3
+MAINTAINER Bushel Web Team <web@bushelpowered.com>
+
+ENV CONTAINER_NGINX_SSL_ENABLED=true
+ENV CONTAINER_DEVELOPMENT=true
+
+ADD . /var/www/

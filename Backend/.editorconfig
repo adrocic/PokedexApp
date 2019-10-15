@@ -1,0 +1,18 @@
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines
+[*]
+end_of_line = LF
+insert_final_newline = false
+
+# Remove white space preceding newline characters
+trim_trailing_whitespace = true
+
+[*.{js,php}]
+# Default charset
+charset = utf-8
+
+# 2 space indentation
+indent_style = space
+indent_size = 2
