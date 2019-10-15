@@ -19,7 +19,6 @@ const PokemonList = () => {
             key={pokemon.id + index}
             id={pokemon.id}
             name={pokemon.name}
-            image={pokemon.image}
             types={pokemon.types}
           />
         </Link>

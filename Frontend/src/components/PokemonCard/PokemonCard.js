@@ -10,7 +10,6 @@ import { rubberBand } from 'react-animations';
 const PokemonCard = props => {
   const id = props.id;
   const name = props.name;
-  const image = props.image;
   const types = props.types;
 
   const bounceAnimation = keyframes`${rubberBand}`;
@@ -63,7 +62,7 @@ const PokemonCard = props => {
       <Box mb="20px" borderBottom="1px solid lightGrey"></Box>
       <BouncyDiv>
         <FlexBox mb="30px" justifyContent="center">
-          <img src={image} alt={name}></img>
+          <img src={`/pokemon_images/${id}.png`} alt={name}></img>
         </FlexBox>
       </BouncyDiv>
       <FlexBox justifyContent="flex-end">

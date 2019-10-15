@@ -21,6 +21,8 @@ const PokemonDetail = ({ match }) => {
   const breakpoints = [1150, 950, 850];
   const mq = breakpoints.map(bp => `@media (max-width: ${bp}px)`);
 
+  const id = pokemon.id;
+  const name = pokemon.name;
   const hp = pokemon.stats.hp;
   const speed = pokemon.stats.speed;
   const attack = pokemon.stats.attack;
@@ -41,7 +43,7 @@ const PokemonDetail = ({ match }) => {
     const fetchPokemon = async () => {
       const res = await Axios.get(
         // eslint-disable-next-line react/prop-types
-        `https://intern-pokedex.myriadapps.com/api/v1/pokemon/${match.params.id}`
+        `/api/v1/pokemon/${match.params.id}`
       );
       setPokemon(res.data.data);
     };
@@ -243,7 +245,7 @@ const PokemonDetail = ({ match }) => {
             borderBottom="1px solid lightGrey"
           >
             <FlexBox my={3} mx={3} fontWeight="bold">
-              {pokemon.name} #{pokemon.id}
+              {name} #{id}
             </FlexBox>
             <FlexBox alignItems="center">
               {pokemon.types.map((type, index) => (
@@ -251,7 +253,7 @@ const PokemonDetail = ({ match }) => {
                   bg={`light${type}`}
                   borderColor={`${type}`}
                   color={`${type}`}
-                  key={pokemon.id + index}
+                  key={id + index}
                 >
                   {type}
                 </Type>
@@ -260,7 +262,7 @@ const PokemonDetail = ({ match }) => {
           </FlexBox>
           <FlexBox height={7} my={4}>
             <FlexBox mx="auto">
-              <img src={pokemon.image}></img>
+              <img src={`/pokemon_images/${id}.png`}></img>
             </FlexBox>
             <StatNameContainer>
               <FlexBox>HP</FlexBox>
@@ -326,9 +328,9 @@ const PokemonDetail = ({ match }) => {
               </FlexBox>
             </ProfileItem>
             <ProfileItem>
-              <FlexBox flexWrap="wrap">{pokemon.abilities.join(', ')}</FlexBox>
+              <FlexBox flexWrap="wrap">{pokemon.abilities}</FlexBox>
               <FlexBox flexWrap="wrap" mt={3}>
-                {pokemon.egg_groups.join(', ')}
+                {pokemon.egg_groups}
               </FlexBox>
             </ProfileItem>
           </ProfileContainer>
