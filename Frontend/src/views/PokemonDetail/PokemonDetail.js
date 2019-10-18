@@ -13,7 +13,7 @@ const PokemonDetail = ({ match }) => {
   const leftArrowIcon = <FontAwesomeIcon icon={faArrowLeft} />;
   const [pokemon, setPokemon] = useState({
     types: [],
-    egg_groups: [],
+    eggGroups: [],
     abilities: [],
     stats: [],
   });
@@ -328,9 +328,9 @@ const PokemonDetail = ({ match }) => {
               </FlexBox>
             </ProfileItem>
             <ProfileItem>
-              <FlexBox flexWrap="wrap">{pokemon.abilities}</FlexBox>
+              <FlexBox flexWrap="wrap">{pokemon.abilities.join(', ')}</FlexBox>
               <FlexBox flexWrap="wrap" mt={3}>
-                {pokemon.egg_groups}
+                {pokemon.eggGroups.join(', ')}
               </FlexBox>
             </ProfileItem>
           </ProfileContainer>
