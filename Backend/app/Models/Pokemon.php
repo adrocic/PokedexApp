@@ -6,18 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pokemon extends Model
 {
-    protected $fillable = [
-        'id',
-        'name',
-        'types',
-        'height',
-        'weight',
-        'abilities',
-        'eggGroups',
-        'stats',
-        'genus',
-        'description',
-        'captured',
+    protected $guarded = [];
+
+    protected $casts = [
+        'types' => 'array',
+        'abilities' => 'array',
+        'eggGroups' => 'array',
+        'stats' => 'object'
     ];
 
     public $timestamps = false;

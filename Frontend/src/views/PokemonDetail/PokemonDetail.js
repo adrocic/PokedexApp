@@ -45,7 +45,7 @@ const PokemonDetail = ({ match }) => {
         // eslint-disable-next-line react/prop-types
         `/api/v1/pokemon/${match.params.id}`
       );
-      setPokemon(res.data.data);
+      setPokemon(res.data);
     };
     fetchPokemon();
   }, []);

@@ -16,7 +16,7 @@ class PokemonController extends Controller
      */
     public function index(Request $request)
     {
-        $searched_pokemon = Pokemon::paginate(12);
+        $searched_pokemon = Pokemon::where('name', 'LIKE', ("%" . $request->input('name') . "%"))->paginate(12);
         return PokemonResource::collection($searched_pokemon);
     }
 
