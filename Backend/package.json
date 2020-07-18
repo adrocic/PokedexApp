@@ -34,7 +34,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.0.5",
     "less-vars-to-js": "^1.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "mini-css-extract-plugin": "^0.5.0",
     "npm": "^6.7.0",
     "popper.js": "^1.12",
