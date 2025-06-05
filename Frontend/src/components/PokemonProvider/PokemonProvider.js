@@ -1,9 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 export const PokemonContext = createContext();
 
-const PokemonProvider = pokemon => {
+const PokemonProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
   // finalPage stores the last page number returned from the API. 0 means
   // that we haven't loaded any pages yet.
@@ -46,9 +47,13 @@ const PokemonProvider = pokemon => {
         setShowHeaderArrows,
       }}
     >
-      {pokemon.children}
+      {children}
     </PokemonContext.Provider>
   );
+};
+
+PokemonProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default PokemonProvider;
