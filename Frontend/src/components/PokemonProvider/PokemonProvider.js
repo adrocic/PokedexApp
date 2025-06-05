@@ -5,8 +5,13 @@ export const PokemonContext = createContext();
 
 const PokemonProvider = pokemon => {
   const [cards, setCards] = useState([]);
-  const [finalPage, setFinalPage] = useState([]);
-  const [loading, setLoading] = useState([false]);
+  // finalPage stores the last page number returned from the API. 0 means
+  // that we haven't loaded any pages yet.
+  const [finalPage, setFinalPage] = useState(0);
+
+  // loading indicates if the pokemon list is currently being fetched. It
+  // should be a boolean value rather than an array containing a boolean.
+  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [showHeaderArrows, setShowHeaderArrows] = useState(true);
