@@ -15,27 +15,27 @@ export const AuthProvider = props => {
     handleTokenChange(token);
   }, [token]);
 
-  function onLogin(newToken) {
+  const onLogin = React.useCallback(newToken => {
     localStorage.setItem('auth_token', newToken);
     setToken(newToken);
-  }
+  }, []);
 
-  function onLogout() {
+  const onLogout = React.useCallback(() => {
     localStorage.removeItem('auth_token');
     setToken(null);
-  }
+  }, []);
 
-  return (
-    <AuthContext.Provider
-      value={{
-        token,
-        isLoggedIn: token ? true : false,
-        login: onLogin,
-        logout: onLogout,
-      }}
-      {...props}
-    />
+  const value = React.useMemo(
+    () => ({
+      token,
+      isLoggedIn: Boolean(token),
+      login: onLogin,
+      logout: onLogout,
+    }),
+    [token, onLogin, onLogout]
   );
+
+  return <AuthContext.Provider value={value} {...props} />;
 };
 
 /**

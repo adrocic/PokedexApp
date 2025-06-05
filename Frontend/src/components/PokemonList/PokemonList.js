@@ -1,15 +1,16 @@
 import React from 'react';
-import PokemonCard from '../PokemonCard/PokemonCard';
 import { Link } from 'react-router-dom';
+
+import PokemonCard from '../PokemonCard/PokemonCard';
 import { PokemonContext } from '../PokemonProvider/PokemonProvider';
 import FlexBox from '../../components/FlexBox';
 
 const PokemonList = () => {
-  const context = React.useContext(PokemonContext);
+  const { cards } = React.useContext(PokemonContext);
 
   return (
     <FlexBox flexWrap="wrap" justifyContent="center" mb="4" mx="3">
-      {context.cards.map((pokemon, index) => (
+      {cards.map((pokemon, index) => (
         <Link
           key={pokemon.id + index}
           to={`/${pokemon.id}`}
@@ -27,4 +28,4 @@ const PokemonList = () => {
   );
 };
 
-export default PokemonList;
+export default React.memo(PokemonList);
